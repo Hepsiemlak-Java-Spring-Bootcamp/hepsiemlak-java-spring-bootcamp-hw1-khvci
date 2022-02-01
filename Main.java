@@ -2,6 +2,8 @@ class Main {
     public static void main(String[] args) {
 
         System.out.println(calculatePalindrome(1005));
+        System.out.println(isPalindrome(1551));
+        System.out.println(isPalindrome(1555));
     }
 
     static long calculatePalindrome(long num) {
@@ -13,5 +15,9 @@ class Main {
         }
 
         return Long.parseLong(reverseNum.toString());
+    }
+
+    static boolean isPalindrome(long num) {
+        return(num == calculatePalindrome(num));
     }
 }
