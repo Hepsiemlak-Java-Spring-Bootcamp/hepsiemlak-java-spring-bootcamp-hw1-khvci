@@ -4,9 +4,12 @@ class Main {
         System.out.println(calculatePalindrome(1005));
         System.out.println(isPalindrome(1551));
         System.out.println(isPalindrome(1555));
+
+        System.out.println(howManySteps(349));
     }
 
-    static long calculatePalindrome(long num) {
+
+    static long calculatePalindrome(long num) { //sayıyı ters çevirir
         String numToCheck = String.valueOf(num);
         StringBuilder reverseNum = new StringBuilder();
 
@@ -17,7 +20,19 @@ class Main {
         return Long.parseLong(reverseNum.toString());
     }
 
-    static boolean isPalindrome(long num) {
+
+    static boolean isPalindrome(long num) { //palindrome olup olmadığını kontrol eder
         return(num == calculatePalindrome(num));
+    }
+
+
+    static int howManySteps(int num) { //kaç kere toplayınca palindrome olacağını bulur
+        long sum = (long)num;
+        int steps = 0;
+        while (!isPalindrome(sum)) {
+            sum += calculatePalindrome(sum);
+            steps++;
+        }
+        return steps;
     }
 }
