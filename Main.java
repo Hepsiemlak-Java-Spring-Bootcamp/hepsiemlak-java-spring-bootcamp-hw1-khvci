@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Main {
     public static void main(String[] args) {
 
@@ -6,10 +8,7 @@ class Main {
         System.out.println(isPalindrome(1555));
 
         System.out.println(howManySteps(349));
-
-        findLongestChain(50);
         findLongestChain(100);
-        findLongestChain(125);
     }
 
 
@@ -53,5 +52,25 @@ class Main {
 
         System.out.println("\n" + hardestNum + " en uzun zinciri sağlıyor ve "
                 + steps + " adımda palindrome oluyor.\n");
+
+        chainPrinter(hardestNum, steps);
+    }
+
+    static void chainPrinter(long hardestNum, int steps) {
+
+        ArrayList chain = new ArrayList();
+        chain.add(hardestNum);
+        long sum = hardestNum;
+
+        System.out.println("Zincir şu şekilde: ");
+
+        for (int i = 0; i < steps; i++) {
+            sum += calculatePalindrome(sum);
+            chain.add(sum);
+            long tempNum = (long)chain.get(i);
+
+            System.out.println((i + 1) + ". " + tempNum + " + " +  calculatePalindrome(tempNum) +
+                    " = " + chain.get(i + 1));
+        }
     }
 }
