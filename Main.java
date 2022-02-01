@@ -4,7 +4,7 @@ class Main {
     public static void main(String[] args) {
 
         findLongestChain(100);
-        
+
     }
 
 
@@ -52,7 +52,7 @@ class Main {
         chainPrinter(hardestNum, steps);
     }
 
-    static void chainPrinter(long hardestNum, int steps) {
+    static void chainPrinter(long hardestNum, int steps) { //en uzun zinciri satır satır yazdırır
 
         ArrayList chain = new ArrayList();
         chain.add(hardestNum);
