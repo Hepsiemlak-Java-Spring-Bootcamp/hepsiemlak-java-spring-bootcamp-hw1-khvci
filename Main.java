@@ -6,6 +6,10 @@ class Main {
         System.out.println(isPalindrome(1555));
 
         System.out.println(howManySteps(349));
+
+        findLongestChain(50);
+        findLongestChain(100);
+        findLongestChain(125);
     }
 
 
@@ -34,5 +38,20 @@ class Main {
             steps++;
         }
         return steps;
+    }
+
+    static void findLongestChain(int num) { //en uzun zinciri hesaplar
+        int hardestNum = 0;
+        int steps = 0;
+
+        for (int i = 1; i <= num; i++) {
+            if(howManySteps(i) > steps) {
+                steps = howManySteps(i);
+                hardestNum = i;
+            }
+        }
+
+        System.out.println("\n" + hardestNum + " en uzun zinciri sağlıyor ve "
+                + steps + " adımda palindrome oluyor.\n");
     }
 }
