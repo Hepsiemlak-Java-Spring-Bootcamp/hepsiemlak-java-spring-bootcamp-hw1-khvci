@@ -13,6 +13,7 @@ public class Kullanici {
     String fotograf;
     String biyografi;
     String vkn;
+
     Set<Ilan> favoriIlanlar = new HashSet<>();
     List<Ilan> yayinladigiIlanlar = new ArrayList<>();
     List<Mesaj> mesajKutusu;
@@ -24,4 +25,13 @@ public class Kullanici {
         this.email = email;
     }
 
+
+    public void setFavoriIlanlar(Ilan ilan) {
+        this.favoriIlanlar.add(ilan);
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
 }

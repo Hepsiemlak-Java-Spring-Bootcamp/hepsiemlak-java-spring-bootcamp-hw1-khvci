@@ -7,29 +7,47 @@ public class Main {
 
     public static void main(String[] args) {
 
+        List<Kullanici> kullaniciListesi = new ArrayList<Kullanici>();
+
         Kullanici kullanici1 = new Kullanici("Bireysel", "Cem", "cemdrman@gmail.com");
+        kullaniciListesi.add(kullanici1);
         kullanici1.mesajKutusu = prepareMesajKutusu();
+
 
         Kullanici kullanici2 = new Kullanici("Bireysel", "Kadir", "cilgin.kadir@gmail.com");
+        kullaniciListesi.add(kullanici2);
         kullanici2.mesajKutusu = prepareMesajKutusu();
+
 
         Kullanici kullanici3 = new Kullanici("Bireysel", "Hatice", "hatice.dev@gmail.com");
+        kullaniciListesi.add(kullanici3);
         kullanici3.mesajKutusu = prepareMesajKutusu();
+
 
         Kullanici kullanici4 = new Kullanici("Bireysel", "Ayşe", "ayse.sari@gmail.com");
+        kullaniciListesi.add(kullanici4);
         kullanici3.mesajKutusu = prepareMesajKutusu();
 
-        Kullanici kullanici5 = new Kullanici("Bireysel", "Cem", "cemdrman@gmail.com");
+
+        Kullanici kullanici5 = new Kullanici("Bireysel", "Ali", "aligumus@gmail.com");
+        kullaniciListesi.add(kullanici5);
         kullanici1.mesajKutusu = prepareMesajKutusu();
 
-        Kullanici kullanici6 = new Kullanici("Bireysel", "Kadir", "cilgin.kadir@gmail.com");
+
+        Kullanici kullanici6 = new Kullanici("Bireysel", "Veli", "veli123@gmail.com");
+        kullaniciListesi.add(kullanici6);
         kullanici2.mesajKutusu = prepareMesajKutusu();
 
-        Kullanici kullanici7 = new Kullanici("Bireysel", "Hatice", "hatice.dev@gmail.com");
+
+        Kullanici kullanici7 = new Kullanici("Bireysel", "Mehmet", "mehmet.dev@gmail.com");
+        kullaniciListesi.add(kullanici7);
         kullanici3.mesajKutusu = prepareMesajKutusu();
 
-        Kullanici kullanici8 = new Kullanici("Bireysel", "Ayşe", "ayse.sari@gmail.com");
+
+        Kullanici kullanici8 = new Kullanici("Bireysel", "Fatma", "fatma.sari@gmail.com");
+        kullaniciListesi.add(kullanici8);
         kullanici3.mesajKutusu = prepareMesajKutusu();
+
 
 
         List<Ilan> ilanListesi = new ArrayList<>();
@@ -86,7 +104,39 @@ public class Main {
         //ilanları filtreleyerek görüntülemek için eklenen fonksiyon
         ilanAra(ilanListesi, "İstanbul", 3000, "2+1", "3+1");
 
+        System.out.println("----------------------------");
 
+        //ilanları kullanıcının favorilerine ekleyen fonksiyon
+        favorilereEkle(ilan1, kullanici4);
+        favorilereEkle(ilan6, kullanici4);
+
+        //email ile kullanıcıyı bulan ve favorilerini yazdıran fonksiyon;
+        yazdırFavoriIlanlar(kullaniciBul(kullaniciListesi, "ayse.sari@gmail.com"));
+    }
+
+    //email ile kullanıcı bulan fonksiyon
+    private static Kullanici kullaniciBul(List<Kullanici> kullaniciListesi, String email) {
+        Kullanici arananKullanici = kullaniciListesi.get(0);
+        for (Kullanici kullanici : kullaniciListesi) {
+            if (kullanici.email.equals(email)) {
+                arananKullanici = kullanici;
+            }
+        }
+        return arananKullanici;
+    }
+
+
+    //kullanıcının favori ilanlarını eklemesini sağlayan fonksiyon
+    private static void favorilereEkle(Ilan ilan, Kullanici kullanici) {
+        kullanici.setFavoriIlanlar(ilan);
+    }
+
+    //kullanıcının favori ilanlarını yazıdran fonksiyon
+    private static void yazdırFavoriIlanlar(Kullanici kullanici) {
+        System.out.println(kullanici.isim + " (" + kullanici.email + ") kullanıcısının favori ilanları şu şekilde: \n");
+        for (Ilan ilan : kullanici.favoriIlanlar) {
+            System.out.println(ilan.getBaslik() + "\n" + ilan.getIl() + " - " + ilan.getOdaSayisi()   + " - " + ilan.getFiyat() + " TL\n");
+        }
     }
 
     // Şehir bilgisi, max fiyat ve (tek seçenekli) oda sayısına göre ilanları sıralayan fonksiyon.
