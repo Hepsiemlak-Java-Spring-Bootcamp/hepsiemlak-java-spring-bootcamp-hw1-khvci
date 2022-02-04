@@ -1,3 +1,5 @@
+package HepsiEmlak;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,7 +125,7 @@ public class Main {
         ilan.setGayrimenkul(makeGayrimenkul());
 
 
-        //kullanici.mesajKutusu.add(new Mesaj("acil dönüş")); // NPE
+        //kullanici.mesajKutusu.add(new HepsiEmlak.Mesaj("acil dönüş")); // NPE
 
         ilan.setKullanici(kullanici);
 
@@ -131,7 +133,7 @@ public class Main {
 
         ilan.setResimList(makeResimList());
 /*
-        for (Mesaj mesaj : kullanici.mesajKutusu) {
+        for (HepsiEmlak.Mesaj mesaj : kullanici.mesajKutusu) {
             System.out.println(mesaj.baslik);
         }
 

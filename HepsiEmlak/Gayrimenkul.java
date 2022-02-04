@@ -1,3 +1,5 @@
+package HepsiEmlak;
+
 public class Gayrimenkul {
 
     private String il;

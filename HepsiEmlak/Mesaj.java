@@ -1,3 +1,5 @@
+package HepsiEmlak;
+
 import java.util.Date;
 
 public class Mesaj {

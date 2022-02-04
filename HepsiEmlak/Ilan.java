@@ -1,5 +1,5 @@
+package HepsiEmlak;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Ilan extends Gayrimenkul { //Gayrımenkul sınıfındaki tüm değişken ve metotlar ilan'da kullanılsın diye extend eder.
